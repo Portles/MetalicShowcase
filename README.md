@@ -2,7 +2,7 @@
 SwiftUI Component for show Waveform objects with MetalApi.
 
 Object & Camera eurlers and position can be manipulated by a signle variable.
-Ready for basic showcase futures like spining clockwise with desired speed.
+Ready for basic showcase features like spining clockwise with desired speed.
 
 (⌥ + left click) on Component to see all details
 
