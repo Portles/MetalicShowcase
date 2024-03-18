@@ -12,17 +12,17 @@ extension EnvironmentValues {
         get { self[DirectionKey.self] }
         set { self[DirectionKey.self] = newValue }
     }
-    
+
     var speed: Float {
         get { self[SpeedKey.self] }
         set { self[SpeedKey.self] = newValue }
     }
-    
+
     var objectProperties: EntitiyProperties {
         get { self[ObjectPropertiesKey.self] }
         set { self[ObjectPropertiesKey.self] = newValue }
     }
-    
+
     var cameraProperties: EntitiyProperties {
         get { self[CameraPropertiesKey.self] }
         set { self[CameraPropertiesKey.self] = newValue }

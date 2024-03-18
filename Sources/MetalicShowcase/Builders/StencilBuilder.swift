@@ -9,11 +9,11 @@ import MetalKit
 
 final class StencilBuilder {
     static func BuildStencil(metalDevice: MTLDevice) -> MTLDepthStencilState {
-        
+
         let depthStencilDescriptor: MTLDepthStencilDescriptor = MTLDepthStencilDescriptor()
         depthStencilDescriptor.depthCompareFunction = .less
         depthStencilDescriptor.isDepthWriteEnabled = true
-        
+
         return metalDevice.makeDepthStencilState(descriptor: depthStencilDescriptor)!
     }
 }

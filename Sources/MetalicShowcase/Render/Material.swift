@@ -22,7 +22,7 @@ final class Material {
         guard let materialURL: URL = Bundle.main.url(forResource: filename, withExtension: "png") else {
             fatalError()
         }
-        
+
         do {
             texture = try allocator.newTexture(URL: materialURL, options: options)
         } catch {
