@@ -43,10 +43,7 @@ final public class Renderer: NSObject {
         
         pipelineState = PipelineBuilder.BuildPipeline(metalDevice: metalDevice, library: library, vsEntry: "vertexShader", fsEntry: "fragmentShader", vertexDescriptor: objectMesh.metalMesh.vertexDescriptor)
         
-        let depthStencilDescriptor: MTLDepthStencilDescriptor = MTLDepthStencilDescriptor()
-        depthStencilDescriptor.depthCompareFunction = .less
-        depthStencilDescriptor.isDepthWriteEnabled = true
-        depthStencilState = metalDevice.makeDepthStencilState(descriptor: depthStencilDescriptor)!
+        depthStencilState = StencilBuilder.BuildStencil(metalDevice: metalDevice)
         
         self.scene = scene
         
