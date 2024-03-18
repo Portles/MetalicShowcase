@@ -41,23 +41,12 @@ final public class Renderer: NSObject {
         
         let library: MTLLibrary = try! metalDevice.makeDefaultLibrary(bundle: Bundle.module)
         
-        let pipelineDescriptor: MTLRenderPipelineDescriptor = MTLRenderPipelineDescriptor()
-        pipelineDescriptor.vertexFunction = library.makeFunction(name: "vertexShader")
-        pipelineDescriptor.fragmentFunction = library.makeFunction(name: "fragmentShader")
-        pipelineDescriptor.colorAttachments[0].pixelFormat = .bgra8Unorm
-        pipelineDescriptor.vertexDescriptor = MTKMetalVertexDescriptorFromModelIO(objectMesh.metalMesh.vertexDescriptor)
-        pipelineDescriptor.depthAttachmentPixelFormat = .depth32Float
+        pipelineState = PipelineBuilder.BuildPipeline(metalDevice: metalDevice, library: library, vsEntry: "vertexShader", fsEntry: "fragmentShader", vertexDescriptor: objectMesh.metalMesh.vertexDescriptor)
         
         let depthStencilDescriptor: MTLDepthStencilDescriptor = MTLDepthStencilDescriptor()
         depthStencilDescriptor.depthCompareFunction = .less
         depthStencilDescriptor.isDepthWriteEnabled = true
         depthStencilState = metalDevice.makeDepthStencilState(descriptor: depthStencilDescriptor)!
-        
-        do {
-            try pipelineState = metalDevice.makeRenderPipelineState(descriptor: pipelineDescriptor)
-        } catch {
-            fatalError()
-        }
         
         self.scene = scene
         
