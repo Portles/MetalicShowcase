@@ -11,9 +11,8 @@ final class PipelineBuilder {
     static func BuildPipeline(metalDevice: MTLDevice, library: MTLLibrary, vsEntry: String, fsEntry: String, vertexDescriptor: MDLVertexDescriptor) -> MTLRenderPipelineState {
 
         let pipelineDescriptor = MTLRenderPipelineDescriptor()
-        let library = metalDevice.makeDefaultLibrary()
-        pipelineDescriptor.vertexFunction = library?.makeFunction(name: vsEntry)
-        pipelineDescriptor.fragmentFunction = library?.makeFunction(name: fsEntry)
+        pipelineDescriptor.vertexFunction = library.makeFunction(name: vsEntry)
+        pipelineDescriptor.fragmentFunction = library.makeFunction(name: fsEntry)
         pipelineDescriptor.colorAttachments[0].pixelFormat = .bgra8Unorm
         pipelineDescriptor.colorAttachments[0].isBlendingEnabled = true
         pipelineDescriptor.colorAttachments[0].alphaBlendOperation = .add

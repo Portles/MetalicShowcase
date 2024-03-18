@@ -32,17 +32,17 @@ import MetalKit
     */
 public struct MetalicShowcase: View {
     @StateObject var metalScene: MetalScene = MetalScene()
-    
+
     var name: String
     @Environment(\.direction) var direction
     @Environment(\.speed) var speed
     @Environment(\.objectProperties) var objectProperties
     @Environment(\.cameraProperties) var cameraProperties
-    
+
     public init(name: String) {
         self.name = name
     }
-    
+
     public var body: some View {
         if direction == .none {
             MetallicView(name: name, metalScene: metalScene)
@@ -74,7 +74,7 @@ public enum RotationDirection: CaseIterable {
 
 public struct MetallicView: UIViewRepresentable {
     let name: String
-    
+
     var metalScene: MetalScene
 
     public func makeCoordinator() -> Renderer {
@@ -110,7 +110,7 @@ public struct MetallicView: UIViewRepresentable {
 
 struct MetallicView: NSViewRepresentable {
     let name: String
-    
+
     var metalScene: MetalScene
 
     func makeCoordinator() -> Renderer {

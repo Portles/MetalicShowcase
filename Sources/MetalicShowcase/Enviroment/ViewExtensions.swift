@@ -15,7 +15,7 @@ public extension View {
     func objectProperties(_ properties: EntitiyProperties) -> some View {
         self.environment(\EnvironmentValues.objectProperties, properties)
     }
-    
+
     func cameraProperties(_ properties: EntitiyProperties) -> some View {
         self.environment(\EnvironmentValues.cameraProperties, properties)
     }

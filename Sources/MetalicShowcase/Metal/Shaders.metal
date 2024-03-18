@@ -30,7 +30,7 @@ vertex Fragment vertexShader(const VertexIn vertex_in [[ stage_in ]], constant m
     output.texCoord = vertex_in.texCoord;
     output.cameraPosition = float3(model * float4(camera.position, 1.0));
     output.fragmentPosition = float3(model * vertex_in.position);
-    
+
     return output;
 }
 
@@ -38,8 +38,8 @@ fragment float4 fragmentShader(Fragment input [[stage_in]], texture2d<float> obj
 {
     float3 baseColor = float3(objectTexture.sample(samplerObject, input.texCoord));
     float alpha = objectTexture.sample(samplerObject, input.texCoord).a;
-    
+
     float3 color = 1.0 * baseColor;
-    
+
     return float4(color, alpha);
 }
