@@ -25,14 +25,7 @@ let package = Package(
         // Targets can depend on other targets in this package and products from dependencies.
         .target(name: "MetalicShowcaseHeader", dependencies: [], path: "Sources/MetalicShowcaseHeader", publicHeadersPath: "include"),
 
-        .target(name: "MetalicShowcase", dependencies: ["MetalicShowcaseHeader"], path: "Sources/MetalicShowcase", resources: [.process("Metal/")], swiftSettings: [
-            .unsafeFlags([
-                "-Xfrontend",
-                "-warn-long-function-bodies=50",
-                "-Xfrontend",
-                "-warn-long-expression-type-checking=50"
-            ])
-        ]),
+        .target(name: "MetalicShowcase", dependencies: ["MetalicShowcaseHeader"], path: "Sources/MetalicShowcase", resources: [.process("Metal/")]),
 
         .testTarget(name: "MetalicShowcaseTests", dependencies: ["MetalicShowcase"])
     ]
