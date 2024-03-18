@@ -31,7 +31,7 @@ final class ObjMesh {
 
         vertexDescriptor.layouts[0].stride = offset
 
-        let meshDescriptor = MTKModelIOVertexDescriptorFromMetal(vertexDescriptor)
+        let meshDescriptor: MDLVertexDescriptor = MTKModelIOVertexDescriptorFromMetal(vertexDescriptor)
         (meshDescriptor.attributes[0] as! MDLVertexAttribute).name = MDLVertexAttributePosition
         (meshDescriptor.attributes[1] as! MDLVertexAttribute).name = MDLVertexAttributeTextureCoordinate
 

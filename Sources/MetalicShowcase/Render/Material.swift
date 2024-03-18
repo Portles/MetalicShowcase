@@ -10,7 +10,7 @@ import MetalKit
 final class Material {
     let texture: MTLTexture
     let sampler: MTLSamplerState
-    let samplerDescriptor: MTLSamplerDescriptor = MTLSamplerDescriptor()
+    private let samplerDescriptor: MTLSamplerDescriptor = MTLSamplerDescriptor()
 
     init(device: MTLDevice, allocator: MTKTextureLoader, filename: String) {
 
